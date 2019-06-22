@@ -20,16 +20,16 @@ if(!$connect){
 class operationsDb {
 
 
-    
+
 
 
     public function __construct()
     {
 
-        /*echo '<pre>';
+        echo '<pre>';
         echo 'вывод константы<br>';
         var_dump(self::class);
-        echo '</pre>';*/
+        echo '</pre>';
 
     }
     public function connect(){
