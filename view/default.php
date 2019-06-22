@@ -34,7 +34,10 @@ spl_autoload_register('autoloader');
 
 
 $show = new operationsDb();
-
+$show->connect();
+echo '<pre>';
+var_dump($show->connect());
+echo '</pre>';
 
 //вывод выборки форм
 echo "<form method='post' action=''>";

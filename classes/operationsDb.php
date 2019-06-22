@@ -20,8 +20,7 @@ if(!$connect){
 class operationsDb {
 
 
-    //public $query = "CREATE TABLE `fields` INSERT INTO `fields` (column_name) values ('')";
-    //public $queryInput = "INSERT INTO `fields` (field_value) VALUES ('')";
+    
 
 
     public function __construct()
@@ -32,6 +31,19 @@ class operationsDb {
         var_dump(self::class);
         echo '</pre>';*/
 
+    }
+    public function connect(){
+        try{
+            $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
+            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+
+
+
+        } catch (PDOException $e){
+            echo $e->getMessage();
+        }
+        return $pdo;
     }
 
     public function install($mysqli){
@@ -61,9 +73,6 @@ class operationsDb {
         try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
         } catch (PDOException $e){
             echo $e->getMessage();
         }
@@ -93,9 +102,6 @@ class operationsDb {
         try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
         } catch (PDOException $e){
             echo $e->getMessage();
         }
@@ -127,9 +133,6 @@ class operationsDb {
         try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
         } catch (PDOException $e){
             echo $e->getMessage();
         }
@@ -160,9 +163,6 @@ class operationsDb {
         try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-
-
         } catch (PDOException $e){
             echo $e->getMessage();
         }

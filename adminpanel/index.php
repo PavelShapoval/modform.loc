@@ -16,6 +16,7 @@ spl_autoload_register('autoloader');
 
 
 $dbobj = new operationsDb;
+
 $formID = uniqid('form_',false);
 $field = [];
 if($_POST['field1'] != ''){
