@@ -1,0 +1,10 @@
+.submit,
+.textarea,
+.text{
+    display: block;
+    margin-bottom: 20px;
+}
+form{
+    border: 1px solid #666;
+    padding: 10px;
+}
