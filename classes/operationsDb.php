@@ -19,9 +19,7 @@ if(!$connect){
 
 class operationsDb {
 
-
-
-
+    
 
     public function __construct()
     {
@@ -32,7 +30,7 @@ class operationsDb {
         echo '</pre>';
 
     }
-    public function connect(){
+    public static function connect(){
         try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -45,6 +43,7 @@ class operationsDb {
         }
         return $pdo;
     }
+
 
     public function install($mysqli){
         mysqli_query($mysqli, "CREATE TABLE IF NOT EXISTS fields (
@@ -76,6 +75,7 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
+        //self::connect();
         $sql = "INSERT INTO forms (form_id, form_name) VALUES ('$formID', '$formName')";
         $affected_rows = $pdo->exec($sql);
         echo $affected_rows;
@@ -105,6 +105,7 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
+        //self::connect();
         $sql = "SELECT form_id FROM forms WHERE form_name = '$formName'";
         $result = $pdo->query($sql);
 
@@ -136,6 +137,7 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
+        //self::connect();
         $sql = "INSERT INTO fields (form_id, field_value) VALUES ('$formID','$value')";
         $affected_rows = $pdo->exec($sql);
         echo $affected_rows;
@@ -166,6 +168,7 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
+        //self::connect();
         $sql = "SELECT * FROM fields WHERE form_id ='$formID'";
         $result = $pdo->query($sql);
 
