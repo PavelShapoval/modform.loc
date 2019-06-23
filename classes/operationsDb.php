@@ -17,20 +17,25 @@ if(!$connect){
 
 
 
-class operationsDb {
+class operationsDb extends db{
 
-    
+
 
     public function __construct()
     {
 
-        echo '<pre>';
-        echo 'вывод константы<br>';
-        var_dump(self::class);
-        echo '</pre>';
 
     }
-    public static function connect(){
+
+    /**
+     * @return mixed
+     */
+    /*public function getPdo()
+    {
+        $pdo = DB::getInstance();
+        return $pdo;
+    }*/
+    /*public static function connect(){
         try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -42,7 +47,7 @@ class operationsDb {
             echo $e->getMessage();
         }
         return $pdo;
-    }
+    }*/
 
 
     public function install($mysqli){
@@ -75,7 +80,6 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
-        //self::connect();
         $sql = "INSERT INTO forms (form_id, form_name) VALUES ('$formID', '$formName')";
         $affected_rows = $pdo->exec($sql);
         echo $affected_rows;
@@ -105,7 +109,6 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
-        //self::connect();
         $sql = "SELECT form_id FROM forms WHERE form_name = '$formName'";
         $result = $pdo->query($sql);
 
@@ -137,7 +140,6 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
-        //self::connect();
         $sql = "INSERT INTO fields (form_id, field_value) VALUES ('$formID','$value')";
         $affected_rows = $pdo->exec($sql);
         echo $affected_rows;
@@ -168,7 +170,6 @@ class operationsDb {
         } catch (PDOException $e){
             echo $e->getMessage();
         }
-        //self::connect();
         $sql = "SELECT * FROM fields WHERE form_id ='$formID'";
         $result = $pdo->query($sql);
 
@@ -193,6 +194,9 @@ class operationsDb {
     {
         return $this->query;
     }*/
+    public function createField(){
+        
+    }
 
 
 }
