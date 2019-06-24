@@ -14,6 +14,8 @@ if(!$connect){
 } else {
     echo 'есть коннект<br>';
 }*/
+$pdo = DB::getInstance();
+global $pdo;
 
 
 
