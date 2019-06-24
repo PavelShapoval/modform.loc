@@ -35,7 +35,7 @@ class operationsDb extends db{
         $pdo = DB::getInstance();
         return $pdo;
     }*/
-    /*public static function connect(){
+    public static function connect(){
         try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -47,7 +47,7 @@ class operationsDb extends db{
             echo $e->getMessage();
         }
         return $pdo;
-    }*/
+    }
 
 
     public function install($mysqli){
@@ -74,12 +74,13 @@ class operationsDb extends db{
     }*/
     //вариант pdo
     public function createForm($formID, $formName){
-        try{
+        /*try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e){
             echo $e->getMessage();
-        }
+        }*/
+        $pdo = self::connect();
         $sql = "INSERT INTO forms (form_id, form_name) VALUES ('$formID', '$formName')";
         $affected_rows = $pdo->exec($sql);
         echo $affected_rows;
@@ -103,12 +104,13 @@ class operationsDb extends db{
     }*/
     //вариант pdo
     public function readID($formName){
-        try{
+        /*try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e){
             echo $e->getMessage();
-        }
+        }*/
+        $pdo = self::connect();
         $sql = "SELECT form_id FROM forms WHERE form_name = '$formName'";
         $result = $pdo->query($sql);
 
@@ -134,12 +136,13 @@ class operationsDb extends db{
     }*/
     //вариант pdo
     public function insertInput($value, $formID){
-        try{
+        /*try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e){
             echo $e->getMessage();
-        }
+        }*/
+        $pdo = self::connect();
         $sql = "INSERT INTO fields (form_id, field_value) VALUES ('$formID','$value')";
         $affected_rows = $pdo->exec($sql);
         echo $affected_rows;
@@ -164,12 +167,13 @@ class operationsDb extends db{
     }*/
     //вариант pdo
     public function showForm($formID){
-        try{
+        /*try{
             $pdo = new PDO('mysql:host=localhost; dbname=form; charset=utf8', 'root', '');
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e){
             echo $e->getMessage();
-        }
+        }*/
+        $pdo = self::connect();
         $sql = "SELECT * FROM fields WHERE form_id ='$formID'";
         $result = $pdo->query($sql);
 
