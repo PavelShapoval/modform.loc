@@ -53,9 +53,9 @@
 }*/
 class DB
 {
-    public static $dsn = 'mysql:dbname=table;host=localhost';
-    public static $user = 'user';
-    public static $pass = 'password';
+    public static $dsn = 'mysql:dbname=form;host=localhost';
+    public static $user = 'root';
+    public static $pass = '';
 
     /**
      * Объект PDO.
